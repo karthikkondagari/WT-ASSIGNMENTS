@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <!-- <label for="input">Enrte the details</label>
+    <input type="text" id="mytext"> -->
+    <input type="button" value="Get data from json" onclick="fun()">
+    <script >function fun(){       
+        fetch('college.json')
+        .then((res)=>{return res.json();})
+        .then(data=>{
+            const tab=document.createElement("table");
+            const tblbody=document.createElement("tbody");
+            for(let book of data){
+                const row =document.createElement("tr");
+                let x=Object.keys(book);
+                for(let k of x){
+                    const cell =document.createElement("td");
+                    const celltext=document.createTextNode(book[k]);
+                    cell.appendChild(celltext);
+                    row.appendChild(cell);
+                }
+                tblbody.appendChild(row);
+    
+                }
+                tab.appendChild(tblbody);
+                document.body.appendChild(tab);
+                tab.setAttribute("border","2");
+            
+        })
+    
+    }
+     
+        
+    </script>
+    
+</body>
+
+</html>
+<!-- /*  let text =prompt("Enter the text");
+let x=text;
+let y="";
+for(let i=0;i<x.length;i++){
+    if(x.charAt(i)='A'&& x.charAt(i)<='Z')
+    y=y+x.charAt(i).toLowerCase();
+
+    else if(x.charAt(i)>'a' && x.charAt(i)<='z')
+    y=y+x.charAt(i).toUpperCase();
+
+}
+console.log(y)
+consloe.log("hi");*/ -->
+
